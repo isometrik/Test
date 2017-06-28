@@ -1,0 +1,329 @@
+tr.tpv_row3 td,
+tr.tpv_row5 td{
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+tr.tpv_row4 td,
+tr.tpv_row6 td{
+    padding-top: 0;
+}    
+ul.tpv_buttons,    
+.tpv_buttons ul {
+    list-style: none !important;
+    margin: 0 !important;
+}
+
+.tpv_buttons li {
+    list-style: none !important;
+    display: inline !important;
+    margin: 0 0 3px 0 !important;
+    padding: 0 !important;
+}
+
+ul.tpv_buttons li:before {
+    color: transparent !important;
+	content:none !important;
+}
+
+.tpv_logo {
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.tpv_license,
+.tpv_syscheck {
+    text-align: justify;
+}
+
+.tpv_clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tpv_buttons button {
+   background: #aaa;
+   color: #000;
+   padding: .1em;
+   margin: 1px;
+/*    border: 1px solid #a7a7a7; */
+   border: 1px solid #000;
+}
+
+.tpv_clear {
+	clear: both;
+}
+/* 
+.tpv_view form button {
+			display: block;
+			margin: 0 auto;
+		}
+  */       
+.tpv_view label {
+			display: block;
+			float:left;
+			width: 200px;
+			margin-right: 5px;
+		}
+.tpv_view li {
+			padding: 5px;
+			background: #999;
+		}
+
+
+.tpv_buttons input {
+	padding:1px;
+	margin-left: 2px;
+}
+
+.tpv_view ,
+.tpv_admin {
+    width: 100%;
+    border: 1px solid #999;
+    padding: 5px 2px 0;
+    color:black;
+}
+.tpv_admin {
+    background: #ffecab;
+}
+
+.tpv_view {
+    background: #c8f49d;
+	margin-bottom: 20px;
+}
+.tpv_tableCfg,
+.tpv_tableValue {
+    width: 100%;
+    background: #e0e0e0;
+    border: 1px solid #999;
+    padding: 5px 2px 0;
+    color:black;
+	border: 8;
+}
+
+.tpv_tableCfg,
+.tpv_tableValue  th {
+    text-align: left;
+}
+
+.tpv_tableCfg  th {
+    background-color: #9A4C4C;
+}
+
+.tpv_tableValue tr:nth-child(even) {
+    background-color: #e0e0e0;
+}
+.tpv_tableValue tr:nth-child(odd) {
+    background-color: #d1d1d1;
+}
+
+/* // Table-Value To first child  */
+.tpv_tableValue th:nth-child(1){
+    width: 70%;
+}
+
+..tpv_tableValue th:nth-child(3){
+    width: 15%;
+}
+.tpv_tableValue th:nth-child(4){
+    width: 15%;
+}
+
+/* // Table-Cfg To first child  */
+.tpv_tableCfg  th:nth-child(1){
+    width: 5%;
+}
+
+.tpv_tableCfg  th:nth-child(2){
+    width: 20%;
+}
+
+.tpv_tableCfg  th:nth-child(3){
+    width: 5%;
+}
+
+.tpv_tableCfg  th:nth-child(4){
+    width: 10%;
+}
+
+.tpv_tableCfg  th:nth-child(5){
+    width: 20%;
+}
+
+/* // To last child  */
+.tpv_tableCfg  th:nth-last-child(1){
+    width: 40%;
+}
+
+}
+
+tr.helpline,
+tr.pagesline {
+	/* border-top: 1px solid #999; */
+}
+/* 
+.tpv_tableCfg tr:nth-child(12n+2),
+.tpv_tableCfg tr:nth-child(12n+3),
+.tpv_tableCfg tr:nth-child(12n+4),
+.tpv_tableCfg tr:nth-child(12n+5),
+.tpv_tableCfg tr:nth-child(12n+6),
+.tpv_tableCfg tr:nth-child(12n+7) {
+	background-color: #e0e0e0;
+}
+.tpv_tableCfg tr:nth-child(12n+7),
+.tpv_tableCfg tr:nth-child(12n+13) {
+	border-bottom: 1px solid #999;
+}
+
+
+.tpv_tableCfg tr:nth-child(12n+8),
+.tpv_tableCfg tr:nth-child(12n+9),
+.tpv_tableCfg tr:nth-child(12n+10),
+.tpv_tableCfg tr:nth-child(12n+11),
+.tpv_tableCfg tr:nth-child(12n+12),
+.tpv_tableCfg tr:nth-child(12n+13){
+  background-color: #B24429;
+}
+ */
+.even {
+    background-color: #B24429;
+}
+.odd {
+    background-color: #d25a3c;
+}
+
+.tpv_tableCfg td {
+    padding: 5px;
+}
+
+.tpv_tableCfg  td:nth-child(1){
+	position:relative;
+	line-height:1;
+}
+
+.tpv_tableCfg td,
+.tpv_tableCfg td input,
+.tpv_tableCfg td select {
+    font: 1em Consolas, monospace;
+}
+
+.tpv_tableCfg tr td.right_aligned {
+    text-align:right;
+}
+.tpv_tableCfg th input {
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.tpv_darker,
+.tpv_darker  {
+    background: #ddd;
+}
+
+
+.tpv_value,
+.tpv_variable {
+    word-break:break-all;
+    background:inherit;
+    border:none;
+    cursor:default;
+    width:100%;
+    /* font-size:80%; */
+}
+.tpv_variable:before {
+    content:"$";
+}
+
+.tpv_value {
+    font-size:80%;
+}
+
+.tpv_imagelist img {
+    display:none;
+}
+a.tpv_imagelist:hover img {
+    display:inline-block;
+    position:absolute;
+    left:0;
+    top: 2em;
+    z-index: 5;
+}
+a.tpv_imagelist {
+    position:relative;
+    text-decoration:none;
+}
+
+a.tpv_iconEdit {
+    margin-left: 5px;
+}
+
+.tpv_fileselect {
+    min-width:50%;
+}
+input[type="text"].pages
+  {
+    width: 95%;
+}
+
+input[type="text"].color
+  {
+    width: 30%;
+}
+
+/* the following code is adapted from Opera's Neil Jenkins, from
+http://www.alistapart.com/articles/expanding-text-areas-made-elegant/ */
+#tplVar textarea,
+#tplVar pre,
+.tplVar textarea,
+.tplVar pre {
+    margin: 0;
+    padding: 0.25em 0.5em !important;
+    outline: 0;
+    border: 0;
+}
+#tplVar .expandingArea,
+.tplVar .expandingArea {
+	width: 95%;
+    position: relative;
+    border: 1px inset #666;
+    padding: 0.25em 0.5em;
+    background: #fff;
+}
+#tplVar .expandingArea > textarea,
+#tplVar .expandingArea > pre,
+.tplVar .expandingArea > textarea,
+.tplVar .expandingArea > pre {
+    padding: 0px;
+    background: transparent;
+    font: normal normal 1em Consolas, monospace;
+    /* Make the text soft-wrap */
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+#tplVar .expandingArea > textarea,
+.tplVar .expandingArea > textarea {
+    box-sizing: border-box;
+}
+
+#tplVar .expandingArea.active > textarea,
+.tplVar .expandingArea.active > textarea {
+    /* Hide any scrollbars */
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    /* Remove WebKit user-resize widget */
+    resize: none;
+}
+#tplVar .expandingArea > pre,
+.tplVar .expandingArea > pre {
+    display: none;
+}
+#tplVar .expandingArea.active > pre,
+.tplVar .expandingArea.active > pre {
+    display: block;
+    /* We don't actually want to see this text, it's just for sizing */
+    visibility: hidden;
+}

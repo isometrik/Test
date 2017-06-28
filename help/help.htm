@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+<title>TemplateVar_XH 0.2 - Hilfe</title>
+<link rel="stylesheet" type="text/css" href="./stylesheet.css">
+</head>
+
+<body>
+<div id="main">
+
+<div class="art-wrapper">
+<h1>TemplateVar_XH 0.1 - Hilfe</h1>
+<p>Plugin entwickelt für CMSimple_XH 1.6.1* auf der Basis von Morepagedata_XH 1.2 von svasti</p>
+<img src="icon-article.png" class="img_left img_icon" alt="Article Icon">TemplateVar_XH ermöglicht es im Backend Variablen zu definieren, die im Template eingesetzt und ausgewertet werden können. So ist es z.B. möglich verschiedene Bestandteile des Templates, wie Header, Login-Link oder andere Elemente je nach Bedarf ein- oder auszuschalten. Auch der Wechsel von im Template verwendeten Bildern (z.B. Logo) ist möglich.
+<p>  In der 'stylesheet.css' des Plugins sind  Klassen definiert, damit die Ansicht von TemplateVar_XH im Backend an das jeweilige Template angepasst werden kann.</p>
+</div>
+
+<ul id="nav">
+<li><a href="#notice">Wichtiger Hinweis</a></li>
+<li><a href="#requirements">Voraussetzungen</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#settings">Einstellungen</a></li>
+<li><a href="#usage-variable">Verwendung der Variablen</a></li>
+<li><a href="#variable">Verwaltung der Variablen</a></li>
+<li><a href="#administration">Konfiguration</a></li>
+<li><a href="#license">Lizenz</a></li>
+<li><a href="#credits">Danksagung</a></li>
+</ul>
+
+<div id="body">
+
+<p><strong>Bitte lesen Sie diese Dokumentation <em>bevor</em> Sie auf Probleme
+stoßen!</strong></p>
+<div  class="art-warning">
+<h2 id="notice">Wichtiger Hinweis</h2>
+<p><strong><img src="../images/warning.png" alt="Warning" class="img_left img_icon">TemplateVar_XH konnte bisher noch nicht in diversen Umgebungen getestet
+werden. Es handelt sich um eine so genannte Alpha Version. Vorsicht bei der
+Verwendung!</strong></p>
+</div>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="requirements">Voraussetzungen</h2>
+<p>TemplateVar_XH ist ein Plugin für CMSimple_XH. Es benötigt CMSimple_XH &ge; 1.6
+</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="installation">Installation</h2>
+<p>Die Installation erfolgt wie bei vielen anderen CMSimple_XH-Plugins auch. Im
+<a href="http://www.cmsimple-xh.org/wiki/doku.php/de:installation">CMSimple_XH
+Wiki</a> finden sie ausführliche Hinweise.</p>
+<ol>
+<li>Sichern Sie die Daten auf Ihrem Server.</li>
+<li>Entpacken Sie die ZIP-Datei auf Ihrem Computer.</li>
+<li>Laden Sie das gesamte Verzeichnis article/ auf Ihren Server in das plugins/ Verzeichnis von CMSimple_XH hoch.</li>
+<li>Vergeben Sie Schreibrechte für die Unterverzeichnisse css/, config/ und languages/.</li>
+</ol>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="settings">Einstellungen</h2>
+<p>Die Konfiguration des Plugins erfolgt wie bei vielen anderen CMSimple_XH-Plugins auch im Administrationsbereich der Homepage. Wählen Sie
+Plugins &rarr; TemplateVar.</p>
+<p>Unter '<a href="#variable">Variablen</a>' können Sie die Variablen neu anlegen, ändern oder löschen.</p>
+<p> Unter 'Stylesheet' kann das Aussehen der von TemplateVar_XH  angepasst werden.</p>
+<p> Unter '<a href="#administration">Konfiguration</a> können Sie die Standardvariablen von TemplateVar_XH  ändern.</p>
+<p>Unter 'Sprache' kann die Lokalisierung vorgenommen werden. Sie können die Zeichenketten in Ihre eigene Sprache übersetzen (falls keine entsprechende Sprachdatei zur Verfügung steht), oder sie entsprechend Ihren Anforderungen anpassen.</p>
+<p>Beim Überfahren der Hilfe-Icons mit der Maus werden Hinweise zu den jeweiligen Einstellungen angezeigt.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="call">Verwendung der Variablen</h2>
+<p>Um TemplateVar_XH zu nutzen können im Template folgende Funktionen verwendet werden:<br>
+<code>
+&lt;?php if (templateVarCheck('Variablenname'): ?&gt;<br>
+</code><code>entsprechender HTML-Code
+  <br>
+  &lt;?php endif ?&gt;</code></p>
+<p>Mit dieser Funktion wird je Status der entsprechenden Variable der Bestandteil des Templates angezeigt, oder eben nicht.</p>
+<p>Mit der zweiten Funktion &quot;templateVar('Variablenname')&quot; wird der Wert der gewählten Variable ausgegeben<br>
+<code>&lt;?php echo (templateVar('logo')?&gt;</code></p>
+<p>Beispiel<br>
+<code>&lt;img alt="Logo" title="Logo" scr="&lt;?php echo (templateVar('logo')?&gt;" &gt;</code></p>
+<p>Selbstverständlich können auch beide Funktionen kombiniert werden:<br>
+  <code>&lt;?php if (templateVarCheck('show_logo'): ?&gt;<br>
+  </code><code>&lt;img alt="Logo" title="Logo" scr="&lt;?php echo (templateVar('logo')?&gt;" &gt;<br>
+&lt;?php endif ?&gt;</code></p>
+<p>In diesem Beispiel kann im Backend das Logo geändert werden und auch die Anzeige manipuliert werden, ohne den Quelltext des Templates ändern zu müssen</p>
+</p>
+<p>Die dritte Funktion ermöglicht die Anzeige von Elementen im Template in einem bestimmten Zeitraum:</p>
+<p><code>&lt;?php 
+</code><code> if (templateVarDate()):<br>
+echo 'Dieser Text wird zwischen dem ' . strftime(&quot;%d.%m.%Y&quot;,strtotime($plugin_cf['templateVar']['date_start'])) . ' und dem ' . strftime(&quot;%d.%m.%Y&quot;,strtotime($plugin_cf['templateVar']['date_end'])) . '  angezeigt';<br>
+endif  ?&gt;</code></p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+<h3 id="call-parameter">Verwaltung der Variablen</h3>
+<h3 id="variable-new">Erste Variable anlegen</h3>
+<p>Beim ersten Pluginaufruf ist die Variablenliste leer und Sie können diese unter dem Punkt 'Variablen' anlegen, falls Sie welche benötigen. In das erste Feld wird der Variablenname eingegeben, der in den Funktionen verwendet wird. Variablennamen müssen eindeutig sein.</p>
+<p><img src="tplVar-variable-new.png" alt="Neue Variable anlegen"></p>
+<p>Weitere Variablen können duch Klick auf die Schaltfläche &quot;+&quot; angelegt werden. Verschieben geht über das &quot;Pfeilsymbol&quot; und Löschen mit dem Löschsymbol.</p>
+<p>Den Variableninhalt kann man ändern, wenn man über den Link &quot;Variablenwerte&quot; oder das Edit-Symbol das Eingabeformular aufruft.</p>
+<p>Alle Änderungen (anlegen, ändern, verschieben und löschen) werden nur nach Bestätigung mit der Schaltfläche 'sichern' übernommen.</p>
+<p>&nbsp;</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2>Verfügbare Feld-Typen</h2>
+<h3 id="variable-add">Variablenwerte ändern</h3>
+
+<h3>Checkbox</h3>
+<p>Kann irgendetwas an- oder ausschalten, wie in obigem Beispiel die Breite des Inhaltsbereichs.
+Ein anderes Beipiel, um das Einlog-Feld von Memberpages zu zeigen oder nicht zu zeigen:</p>
+<p><code>
+  &lt;?php
+  if(isset($memberslogin)) {echo memberslogin();}
+  ?&gt;</code></p>
+<hr>
+
+<h3>Color picker</h3>
+<p>nutzt Jan Odvárko's <a href="http://jscolor.com" target="_blank">jscolor</a>.
+Color Picker erzeugt Farbcode der mit <code>#</code> anfängt. Statt Farbcode kann man auch englische Farbnamen (z.B.: white, red, blue, green, black) eingeben.
+</p><hr>
+<h3>Image folder</h3>
+<p>zeigt eine Auswahlliste mit allen Bildern aus dem Ordner, der in der Pluginkonfiguration angegeben ist.</p><hr>
+
+<h3>Input field</h3>
+<p>erzeugt einen selbstwachsenden Eingabebereich für Fälle, in denen die anderen Feldtypen zu begrenzt sind.</p><hr>
+
+<h3>Option list</h3>
+<p>Bei Auswahl dieses Typs im Pluginbackend erscheint eine neue Zeile in der man die Optionswerte einträgt, entweder so<br>
+<code>option 1||option 2||option 3</code> oder so<br>
+<code>option 1|angezeigter Text 1|option 2|angezeigter Text 2|option 3|angezeigter Text 3</code> etc.<br>
+Kein <code>|</code> am Ende!</p><hr>
+
+<h3>Template image</h3>
+<p>erzeugt eine Auswahlliste mit allen Bildern des Template Ordners. Den Pfad in der Pluginkonfiguration eingeben.</p><hr>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h3 id="variable-delete">Konfigurationseinstellungen</h3>
+<p>Es können folgende Standardvariablen verwendet werden:</p>
+<ul>
+  <li>show_animation</li>
+  <li>show_aside</li>
+  <li>show_background</li>
+  <li>show_footer</li>
+  <li>show_header</li>
+  <li>show_logo</li>
+  <li>show_login</li>
+  <li>date_start</li>
+  <li>date_end</li>
+  <li>input_string1</li>
+  <li>input_string2</li>
+  <li>input_string3</li>
+</ul>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h4>Lizenz</h4>
+<p>TemplateVar_XH kann frei verwendet werden.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+
+<h2 id="credits">Danksagung</h2>
+<p>TemplateVar_XH wurde auf Basis von <a href="http://svasti.de/?Start/Morepagedata"> Morepagedata_XH 1.2</a> von svasti entwickelt.</p>
+<p>Dieses Plugin verwendet ein Icon aus dem Icon-Set-3 von <a href="http://www.designious.com/free-icons-set-3">designious.com</a>, sowie Icons der <a href="https://sourceforge.net/projects/openiconlibrary/"> Open Icon Library</a>. Vielen Dank für die freie Verwendbarkeit dieser Icons.</p>
+<p>Besonders möchte ich mich bei Christoph alias <a href="http://http://3-magi.net">cmb</a> für seine Unterstützung und die Geduld bei meinen vielen Fragen bedanken. </p>
+<p>Zu guter Letzt vielen Dank an <a href="http://harteg.dk/">Peter Harteg</a>,
+  den "Vater" von CMSimple, und allen Entwicklern von <a
+href="http://www.cmsimple-xh.org/">CMSimple_XH</a>, ohne die dieses fantastische
+  CMS nicht existieren würde.</p>
+<div class="toplink"><a href="#">zum Seitenanfang</a></div>
+</div> <!-- End #body -->
+</div> <!-- End #main -->
+</body>
+
+</html>
